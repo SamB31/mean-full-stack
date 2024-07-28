@@ -7,7 +7,7 @@ const port = 3000;
 
 
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('views', path.join(__dirname, 'app_server', 'views', 'layouts'));
 
 handlebars.registerPartials(__dirname + '/app_server/views/partials');
 handlebars.registerHelper('eq', (a, b) => a == b)
