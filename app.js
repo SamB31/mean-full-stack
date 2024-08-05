@@ -12,6 +12,10 @@ app.set('views', path.join(__dirname, 'app_server', 'views', 'layouts'));
 handlebars.registerPartials(__dirname + '/app_server/views/partials');
 handlebars.registerHelper('eq', (a, b) => a == b)
 
+
+
+require('./app_api/models/db')
+
 // Middleware to serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -24,6 +28,9 @@ app.use('/meals', require('./app_server/routes/meals'));
 app.use('/news', require('./app_server/routes/news'));
 app.use('/rooms', require('./app_server/routes/rooms'));
 app.use('/travel', require('./app_server/routes/travel'));
+
+var apiRouter = require('./app_api/routes/index')
+app.use('/api', apiRouter)
 
 // Start the server
 app.listen(port, () => {

@@ -2,7 +2,7 @@ const Mongoose = require('./db.js');
 const Trip = require('./travlr.js');
 
 var fs = require('fs');
-var trips = JSON.parse(fs.readFileSync('./data/travel.json', 'utf8'));
+var trips = JSON.parse(fs.readFileSync('../data/travel.json', 'utf8'));
 
 // delete any existing records, then insert seed data
 const seedDB = async () => {
